@@ -1,0 +1,30 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heading {
+    width: 100%;
+    border-bottom: 2px black;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:35%;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+    width:75%;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 20%;
+}
