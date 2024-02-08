@@ -6,9 +6,19 @@
     <title>Samr's Website</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <script type="text/javascript">
-        let color = black;
-        function changeBackground() {
-            document.body.style.background = "black";
+        function changeToDay() {
+            document.body.style.background = "rgb(247, 254, 254)";
+            let aboutElements=document.getElementsByClassName("about-me");
+            for (let i = 0; i < aboutElements.length; i++) {
+                aboutElements[i].style.color = "black";
+            }   
+        }
+        function changeToNight() {
+            document.body.style.background = "rgb(66, 64, 64)";
+            let aboutElements=document.getElementsByClassName("about-me");
+            for (let i = 0; i < aboutElements.length; i++) {
+                aboutElements[i].style.color = "white";
+            }        
         }
 
     </script>
@@ -19,10 +29,11 @@
     </div>
 
     <div class="menu">
-        <button onclick="changeBackground();">Day mode!</button>
+        <button onclick="changeToDay();">Day mode</button>
+        <button onclick="changeToNight();">Night mode</button>
         <img class="icon" src="https://oyster.ignimgs.com/mediawiki/apis.ign.com/pokemon-black-and-white/c/cd/Pokemans_161.gif">
         <h2 class="about-me">About me!</h2>
-        <p class="about-desc">
+        <p class="about-me">
             My name is Samr Mouna! Do you ever wonder what I do in my spare time?
              Well, you probably don't.
              So, it's my job to tell you!
