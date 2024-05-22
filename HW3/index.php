@@ -40,9 +40,10 @@
         function printTable(array $data, $optional = null) {
             echo "<table>
             <tr>
-            <th>Pokemon</th>
             <th>ID</th>
+            <th>Pokemon</th>
             </tr>";
+        if  ($optional == null ) { 
         foreach ($data as $key => $value) {
         echo "<tr>
                 <td>$value</td>
@@ -50,39 +51,57 @@
             </tr>";
         }
         echo "</table>";
+        } else {
+            foreach ($data as $key => $value) {
+                if ($value > $optional){
+                    echo "<tr>
+                        <td>$value</td>
+                        <td>$key</td>
+                    </tr>";
+                }
+            }
+                echo "</table>";
+        }
+
+
         }
 
         for( $i = 0; $i < 6; $i++ ) {
             switch ($i) {
-                case 0: // code to be executed if x = 1
+                case 0:
                     echo "<h2>Part a, b</h2>
                     <p>Initializing the array and printing out intiial values</p>";
                     printTable( $pokemonArray );
                     break;
-                case 1: // code to be executed if x = 2
-                    echo "<h2>Part c</h2>";
+                case 1: 
+                    echo "<h2>Part c</h2>
+                    <p>Print array with specific criteria (Value > 4)";
+                    printTable( $pokemonArray, 4);
                     break;
-                case 2: // code to be executed if x = 3
+                case 2: 
                     echo "<h2>Part d</h2>
                     <p>Sorting the array by ascending values</p>";
                     asort( $pokemonArray );
                     printTable( $pokemonArray );
                     break;
-                case 3: // code to be executed if x = 3
+                case 3: 
                     echo "<h2>Part e</h2>
                     <p>Unset the 4th element of the array</p>";
-                    unset( $pokemonArray[3] );
+                    $keys = array_keys($pokemonArray);
+                    unset( $pokemonArray[$keys[3]] );
                     printTable( $pokemonArray );
                     break;
-                case 4: // code to be executed if x = 3
+                case 4: 
                     echo "<h2>Part f</h2>
                     <p>Sort the array in reverse</p>";
                     arsort( $pokemonArray );
                     printTable( $pokemonArray );
                     break;
-                case 5: // code to be executed if x = 3
+                case 5: 
                     echo "<h2>Part g</h2>
                     <p>Sort array by keys</p>";
+                    ksort( $pokemonArray );
+                    printTable( $pokemonArray );
                     break;
             }
 
@@ -90,26 +109,6 @@
         
         }
 
-    ?>
-
-    <h2>Part c</h2>
-    <p>Criteria: All pokemon with ID less than or equal to 4</p>
-
-    <?php
-        echo "<table>
-                <tr>
-                <th>Pokemon</th>
-                <th>ID (<=4)</th>
-                </tr>";
-        foreach ($pokemonArray as $key => $value) {
-            if($value <= 4){
-            echo "<tr>
-                    <td>$value</td>
-                    <td>$key</td>
-                </tr>";
-            }
-        }
-        echo "</table>";
     ?>
 
 
